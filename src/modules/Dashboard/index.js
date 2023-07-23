@@ -1,36 +1,42 @@
-import React, { useEffect, useState } from 'react'
-// import Card from '../../components/cards'
+import React, { useEffect, useState } from "react";
+import Card from "../../components/cards";
+import './style.css'
 const Dashboard = () => {
-    const [emoji, setEmoji] = useState([]);
-    useEffect(() => {
-        const fetchEmoji =async()=>{
-            try {
-                const response = await fetch('https://emojihub.yurace.pro/api/all')
-                console.log(response)
-                if(!response.ok){
-                    throw new Error('Error fetching!')
-                }
-                const data = await response.json()
-                setEmoji(data);
-            } catch (error) {
-                console.log('error:', error )
-            }
+  const [emoji, setEmoji] = useState([]);
+  useEffect(() => {
+    const fetchEmoji = async () => {
+      try {
+        const response = await fetch("https://emojihub.yurace.pro/api/all");
+        console.log(response);
+        if (!response.ok) {
+          throw new Error("Error fetching!");
         }
-      fetchEmoji();
-    }, [])
-    
-  return (
-    <div>
-        {emoji.map((emoji)=>{
-            const emojiHtml = {__html: emoji.htmlCode}
-            return(
-                <div key={emoji.unicode} >
-                    {emoji.name} + <span dangerouslySetInnerHTML={emojiHtml}></span>
-                </div>
-            )
-        })}
-    </div>
-  )
-}
+        const data = await response.json();
+        setEmoji(data);
+      } catch (error) {
+        console.log("error:", error);
+      }
+    };
+    fetchEmoji();
+  }, []);
 
-export default Dashboard
+  return (
+    <div className="dashboard-container">
+      {emoji.map((emojiItem) => {
+        const { unicode, htmlCode, name, group, category } = emojiItem;
+        const combinedHtml = htmlCode.join("");
+        return (
+          <div key={unicode} className="emoji-card">
+            <Card
+              dangerouslySetInnerHTML={{ __html: combinedHtml }}
+              value={name}
+              additionalInfo={[group, category]}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Dashboard;
