@@ -1,21 +1,17 @@
-/* style.css */
-
-/* Reset some default styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
-  /* Styling for the card */
   div {
     font-family: Arial, sans-serif;
   }
   
   .card {
     position: relative;
-    width: 100px; /* You can adjust this width based on your preference */
-    height: 100px; /* You can adjust this height based on your preference */
+    width: 100px; 
+    height: 100px;
     border: 1px solid #ffefef;
     border-radius: 16px;
     background-color: #ffefef;
@@ -23,7 +19,6 @@
     cursor: pointer;
   }
   
-  /* Styling for the card-info */
   .card-info {
     position: absolute;
     top: 0;
@@ -37,19 +32,18 @@
     transition: opacity 0.3s ease;
   }
   
-  /* Styling for the name, category, and group inside card-info */
   .card-info > div {
     margin: 8px;
   }
   
-  /* Styling for the emoji */
+  
   .emoji {
-    font-size: 44px; /* You can adjust this font size based on your preference */
+    font-size: 44px; 
   }
   
-  /* Styling when the card is hovered */
+  
   .card.hovered {
-    transform: scale(1.1); /* You can adjust the scale factor based on your preference */
+    transform: scale(1.1);
   }
   
   .card.hovered .emoji {
@@ -61,28 +55,28 @@
     pointer-events: auto;
   }
   
-  /* Styling for small screens */
+ 
   @media screen and (max-width: 1200px) {
     .dashboard-container {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px; /* Adjust the gap between cards for smaller screens */
-      padding: 15px; /* Adjust the overall padding for smaller screens */
+      gap: 15px; 
+      padding: 15px;
     }
   }
   
   @media screen and (max-width: 800px) {
     .dashboard-container {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px; /* Adjust the gap between cards for smaller screens */
-      padding: 10px; /* Adjust the overall padding for smaller screens */
+      gap: 10px;
+      padding: 10px;
     }
   }
   
   @media screen and (max-width: 600px) {
     .dashboard-container {
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 5px; /* Adjust the gap between cards for smaller screens */
-      padding: 5px; /* Adjust the overall padding for smaller screens */
+      gap: 5px; 
+      padding: 5px;
     }
   }
   

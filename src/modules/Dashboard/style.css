@@ -1,31 +1,23 @@
-/* style.css */
-
-/* Reset some default styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
-  /* Styling for the dashboard container */
   .dashboard-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px; 
-    /* Adjust the gap between cards as per your preference */
-    /* padding: 20px; Adjust the overall padding of the grid container */
   }
   
-  /* Styling for the emoji-card */
   .emoji-card {
     width: 100%;
     height: 100%;
   }
   
-  /* Media queries for responsiveness */
   @media screen and (max-width: 600px) {
     .dashboard-container {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));/* Adjust the gap between cards for smaller screens */
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
     .emoji-card {
         width: 10%;
