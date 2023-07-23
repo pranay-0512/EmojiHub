@@ -6,7 +6,8 @@ const Cards = ({
   id = '',
   value = '',
   dangerouslySetInnerHTML = {},
-  additionalInfo = [],
+  group = '',
+  category = '',
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -20,18 +21,16 @@ const Cards = ({
 
   return (
     <div
-      className={`card ${className}`}
-      id={id}
+      className={`card ${isHovered ? 'hovered' : ''}`}
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
       <div className="emoji" dangerouslySetInnerHTML={dangerouslySetInnerHTML}></div>
-      {isHovered && (
-        <div className="card-info">
-          <div className="name">{value}</div>
-          <div className="additional-info">{additionalInfo.join(' + ')}</div>
-        </div>
-      )}
+      <div className={`card-info ${isHovered ? 'visible' : ''}`}>
+        <div className="name">Name: {value}</div>
+        <div className="category">{category}</div>
+        <div className="group">{group}</div>
+      </div>
     </div>
   );
 };

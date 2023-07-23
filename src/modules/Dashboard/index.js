@@ -30,7 +30,8 @@ const Dashboard = () => {
             <Card
               dangerouslySetInnerHTML={{ __html: combinedHtml }}
               value={name}
-              additionalInfo={[group, category]}
+              group={group}
+              category={category}
             />
           </div>
         );
